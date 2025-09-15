@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commafeed
+  namespace: commafeed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: commafeed
+  template:
+    metadata:
+      labels:
+        app: commafeed
+    spec:
+      containers:
+        - name: commafeed
+          image: athou/commafeed:4.3.1
+          ports:
+            - containerPort: 8082
+
